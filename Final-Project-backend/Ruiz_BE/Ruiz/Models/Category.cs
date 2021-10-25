@@ -11,5 +11,6 @@ namespace Ruiz.Models
         public int Id { get; set; }
         [StringLength(maximumLength: (50))]
         public string Name { get; set; }
+        public List<Watch> Watches { get; set; }
     }
 }

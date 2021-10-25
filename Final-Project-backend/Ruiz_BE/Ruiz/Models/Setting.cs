@@ -45,5 +45,17 @@ namespace Ruiz.Models
         public string Banner3 { get; set; }
         [StringLength(maximumLength: 20)]
         public string Banner4 { get; set; }
+        [StringLength(maximumLength: 30)]
+        public string WorkdayStartDay { get; set; }
+        [StringLength(maximumLength: 30)]
+        public string WorkdayFinishDay { get; set; }
+        [StringLength(maximumLength: 30)]
+        public string WorkdayStartTime { get; set; }
+        [StringLength(maximumLength: 30)]
+        public string WorkdayFinishTime { get; set; }
+        [StringLength(maximumLength: 30)]
+        public string AboutUsPhoto { get; set; }
+        [StringLength(maximumLength: 600)]
+        public string AboutUsContent { get; set; }
     }
 }

@@ -27,10 +27,28 @@ namespace Ruiz.Controllers
                 Setting = _context.Settings.FirstOrDefault(),
                 Sliders = _context.Sliders.OrderBy(x => x.Order).ToList(),
                 Blogs = _context.Blogs.ToList(),
+                
             };
             return View(homeVM);
         }
 
-        
+        public IActionResult About() 
+        {
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                Setting = _context.Settings.FirstOrDefault(),
+                Testimonials=_context.Testimonials.ToList()
+            };
+            return View(homeVM);
+        }
+
+        public IActionResult Contact() 
+        {
+            HomeViewModel homeVM = new HomeViewModel
+            {
+                Setting=_context.Settings.FirstOrDefault()
+            };
+            return View(homeVM);
+        }
     }
 }

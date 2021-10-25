@@ -11,5 +11,6 @@ namespace Ruiz.ViewModels
         public Setting Setting { get; set; }
         public List<Slider> Sliders { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Testimonial> Testimonials { get; set; }
     }
 }

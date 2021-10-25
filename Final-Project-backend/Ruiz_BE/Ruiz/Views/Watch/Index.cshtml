@@ -1,0 +1,290 @@
+﻿@model List<Watch>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Shop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-content-wrap shop-page section-ptb">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 order-lg-1 order-2">
+                <div class="shop-sidebar-wrap">
+                    <div class="shop-box-area">
+
+                        <div class="sidebar-categores-box shop-sidebar mb-30">
+                            <h4 class="title">Categories</h4>
+                            <div class="category-sub-menu">
+                                <ul>
+                                    @foreach (Category item in ViewBag.Categories)
+                                    {
+                                        <li style="@(ViewBag.GenreId==item.Id?"color:#62ab00":"")" asp-action="index" asp-route-genreId="@item.Id" class="has-sub">
+                                            <a> @item.Name (@item.Watches.Count())</a>
+                                        </li>
+
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="shop-sidebar mb-30">
+                            <h4 class="title">Filter By Price</h4>
+                            <div class="filter-price-content">
+                                <form action="#" method="post">
+                                    <div id="price-slider" class="price-slider"></div>
+                                    <div class="filter-price-wapper">
+
+                                        <a class="add-to-cart-button" href="#">
+                                            <span>FILTER</span>
+                                        </a>
+                                        <div class="filter-price-cont">
+
+                                            <span>Price:</span>
+                                            <div class="input-type">
+                                                <input type="hidden" id="selectedMinPrice" value="@ViewBag.SelectedMinPrice" readonly="">
+
+                                            </div>
+                                            <span>—</span>
+                                            <div class="input-type">
+                                                <input type="hidden" id="selectedMaxPrice" value="@ViewBag.SelectedMaxPrice" readonly="">
+                                            </div>
+                                            <input type="hidden" id="minPrice" value="@ViewBag.MinPrice" readonly="">
+                                            <input type="hidden" id="maxPrice" value="@ViewBag.MaxPrice" readonly="">
+                                               
+                                                
+                                               
+                                                <input type="hidden" id="minPrice" value="@ViewBag.MinPrice" readonly="">
+                                                <input type="hidden" id="maxPrice" value="@ViewBag.MaxPrice" readonly="">
+                                            
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="shop-sidebar mb-30">
+                            <h4 class="title">Product tags</h4>
+
+                            <ul class="sidebar-tag">
+                                @foreach (var item in ViewBag.Tags)
+                                {
+                                    <li><a href="#">@item.Name</a></li>
+                                }
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 order-lg-2 order-1">
+                <div class="shop-product-wrapper">
+                    <div class="row align-itmes-center">
+                        <div class="col">
+                            <div class="shop-top-bar">
+
+                                <div class="product-mode">
+                                    <ul class="nav shop-item-filter-list" role="tablist">
+                                    </ul>
+                                </div>
+                                <div class="product-short">
+                                    <p>Sort By :</p>
+                                    <select class="nice-select" name="sortby">
+                                        @if (ViewBag.Sort == "A-Z")
+                                        {
+
+                                            <option value="A-Z" selected>Name(A - Z)</option>
+
+                                        }
+                                        else
+                                        {
+
+                                            <option value="A-Z">Name(A - Z)</option>
+
+                                        }
+                                        @if (ViewBag.Sort == "Z-A")
+                                        {
+                                            <option value="Z-A" selected>Name(Z-A)</option>
+
+                                        }
+                                        else
+                                        {
+                                            <option value="Z-A">Name(Z-A)</option>
+                                        }
+                                        @if (ViewBag.Sort == "Low-High")
+                                        {
+                                            <option value="Low-High" selected>
+                                                Price(Low > High)
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="Low-High">
+                                                Price(Low > High)
+                                            </option>
+                                        }
+                                        @if (ViewBag.Sort == "High-Low")
+                                        {
+                                            <option value="High-Low" selected>
+                                                Price(High > Low)
+                                            </option>
+                                        }
+                                        else
+                                        {
+                                            <option value="High-Low">
+                                                Price(High > Low)
+                                            </option>
+                                        }
+
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="shop-products-wrap">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="grid">
+                                <div class="shop-product-wrap">
+                                    <div class="row">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="col-lg-4 col-md-6">
+                                                <div class="single-product-area mt-30">
+                                                    <div class="product-thumb">
+                                                        <a asp-action="detail" asp-route-id="@item.Id">
+                                                            <img class="primary-image"
+                                                                 src="~/assets/images/product/@item.WatchImages.FirstOrDefault(x=>x.PosterStatus == false)?.Image" alt="">
+                                                        </a>
+                                                      @if (item.IsNew == true)
+                                                      {
+
+                                                          <div class="label-product label_new">New</div>
+
+                                                      }
+                                                      else 
+                                                      { 
+                                                    <div class="label-product label_new"></div>
+                                                      
+                                                      }
+                                                        <div class="action-links">
+                                                            <a href="cart.html" class="cart-btn"
+                                                               title="Add to Basket">
+                                                                <i class="icon-basket-loaded"></i>
+                                                            </a>
+                                                            <a href="wishlist.html" class="wishlist-btn"
+                                                               title="Add to Wish List">
+                                                                <i class="icon-heart"></i>
+                                                            </a>
+                                                            <a href="#" class="quick-view" title="Quick View"
+                                                               data-bs-toggle="modal"
+                                                               data-bs-target="#exampleModalCenter">
+                                                                <i class="icon-magnifier icons"></i>
+                                                            </a>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="product-caption">
+                                                        <h4 class="product-name">
+                                                            <a asp-action="detail" asp-route-id="@item.Id">@item.Name</a>
+                                                        </h4>
+                                                        <div class="price-box">
+                                                            @if (item.DiscountedPrice != item.Price)
+                                                            {
+                                                                <span class="new-price">@item.DiscountedPrice</span>
+                                                                <span class="old-price">@item.Price</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="price">£@item.Price</span>
+                                                            }
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        }
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="paginatoin-area">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12">
+                                    <ul class="pagination-box">
+                                        <li style="@(ViewBag.SelectedPage==1?"background: #80808073;pointer-events: none;":"")">
+                                            <a class="Prev" asp-action="index" asp-route-sort="@ViewBag.Sort" asp-route-minPrice="@ViewBag.SelectedMinPrice" asp-route-maxPrice="@ViewBag.SelectedMaxPrice" asp-route-page="@(ViewBag.SelectedPage-1)" asp-route-genreId="@ViewBag.GenreId">Prev</a>
+                                        </li>
+                                        @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                                        {
+                                            <li class="@(ViewBag.SelectedPage==i?"active":"")"><a asp-route-sort="@ViewBag.Sort" asp-route-minPrice="@ViewBag.SelectedMinPrice" asp-route-maxPrice="@ViewBag.SelectedMaxPrice" asp-action="index" asp-route-page="@i" asp-route-genreId="@ViewBag.GenreId">@i</a></li>
+                                        }
+
+
+                                        <li style="@(ViewBag.SelectedPage==ViewBag.TotalPage?"background: #80808073;pointer-events: none;":"")">
+                                            <a class="Next" asp-action="index" asp-route-page="@(ViewBag.SelectedPage+1)" asp-route-sort="@ViewBag.Sort" asp-route-minPrice="@ViewBag.SelectedMinPrice" asp-route-maxPrice="@ViewBag.SelectedMaxPrice" asp-route-genreId="@ViewBag.GenreId">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $(document).on("change", "#sort", function (e) {
+                var url = new URL(window.location.href);
+                url.searchParams.delete("sort");
+                url.searchParams.append("sort", $(this).val());
+                window.location.href = url;
+            })
+            $(function () {
+                var selectedMin = $("#selectedMinPrice").val();
+                var selectedMax = $("#selectedMaxPrice").val();
+                var minPrice = $("#minPrice").val();
+                var maxPrice = $("#maxPrice").val();
+                $(".sb-range-slider").slider({
+                    range: true,
+                    min: Number(minPrice),
+                    max: Number(maxPrice),
+                    values: [selectedMin, selectedMax],
+                    slide: function (event, ui) {
+                        $("#amount").val("£" + ui.values[0] + " - £" + ui.values[1]);
+                    },
+                    stop:
+                        function (event, ui) {
+                            console.log("values:" + ui.values[0] + " - " + ui.values[1])
+                            var url = new URL(window.location.href);
+                            url.searchParams.delete("minPrice");
+                            url.searchParams.delete("maxPrice");
+                            url.searchParams.append("minPrice", ui.values[0]);
+                            url.searchParams.append("maxPrice", ui.values[1]);
+                            window.location.href = url;
+                        },
+                });
+                $("#amount").val("£" + $(".sb-range-slider").slider("values", 0) +
+                    " - £" + $(".sb-range-slider").slider("values", 1));
+            });
+        })
+    </script>
+}

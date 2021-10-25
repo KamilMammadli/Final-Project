@@ -1,54 +1,7 @@
 @charset "UTF-8";
-/*-----------------------------------------------------------------------------------
 
-    Version: 1.0
-
------------------------------------------------------------------------------------
-
-    CSS INDEX
-    ===================
-
-    01. Theme default CSS
-        - Paginatoin Css
-    02. Header Css
-        - Header Bottom Css
-        - Main Menu Css
-        - Right Blok Box Css
-        - Shopping Cart Css
-        - Mobile Menu Css
-    03. Categories Menu Css
-    04. Hero Css
-    05. Support Css
-    06. Product Area Css
-    07. Product Details Css
-    08. Testimonial Css
-    09. Banner Area Css
-    10. Blog Area Css
-    11. Footer Css
-    12. Breadcrumb Style
-    13. Widget Css   
-    14. Deals Offer Css
-    15. Brand Css
-    16. About US css
-    17. Contact Us Css
-    18. Cart Page Css
-    19. Checkout Page Css
-    20. Error 404 Page Css
-    21. Compare Page Css
-    22. My Account Page Css
-    23. Login And Register Css
-
------------------------------------------------------------------------------------*/
-/* transition */
-/* flex */
-/* transform */
-/* opacity */
-/*----------------------------------------*/
-/*  01. Theme default CSS
-/*----------------------------------------*/
-/*-- Google Font --*/
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900");
-/*-- Common Style --*/
+
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -206,9 +159,6 @@ a:focus {
   top: 0;
 }
 
-/*-- 
-    - Common Classes
------------------------------------------*/
 .container {
   max-width: 1170px;
 }
@@ -279,7 +229,6 @@ a:focus {
   margin-left: -8px;
 }
 
-/*-- Container Fluid --*/
 .container-ext {
   max-width: 1400px;
   margin: auto;
@@ -313,9 +262,6 @@ a:focus {
   }
 }
 
-/*--
-    - Paginatoin Css
----------------------------------*/
 .pagination-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -445,9 +391,6 @@ a:focus {
     margin-top: 30px;
   }
 }
-/*-- 
-    - Section Padding
--------------------------------------*/
 .section-ptb {
   padding: 60px 0;
 }
@@ -628,9 +571,6 @@ a:focus {
   background-size: cover;
 }
 
-/*-- 
-    - Input Placeholder
------------------------------------------*/
 input:-moz-placeholder, textarea:-moz-placeholder {
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -651,9 +591,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
-/*-- 
-    Scroll Up 
------------------------------------------*/
 #scrollUp {
   width: 40px;
   height: 40px;
@@ -688,9 +625,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
           animation-iteration-count: infinite;
 }
 
-/*--
-    - Background Color
-------------------------------------------*/
 .bg-gray {
   background-color: #F6F7F9;
 }
@@ -725,9 +659,7 @@ img.mfp-img {
   border-top: 1px solid #e1e1e1;
 }
 
-/*--
-    - Social Color
-------------------------------------------*/
+
 .facebook {
   background-color: #3B5997;
   color: #ffffff;
@@ -890,7 +822,7 @@ img.mfp-img {
   color: #ffffff;
 }
 
-/*-- Tab Content & Pane Fix --*/
+
 .tab-content {
   width: 100%;
 }
@@ -909,9 +841,7 @@ img.mfp-img {
   overflow: visible;
 }
 
-/*--
-    - Product Full Width
-------------------------------------------*/
+
 .full-width-product-wrap > [class*=col-]:nth-child(1), .full-width-product-wrap > [class*=col]:nth-child(1) {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 450px;
@@ -1014,9 +944,6 @@ img.mfp-img {
   }
 }
 
-/*-- 
-    - Page Pagination
-------------------------------------------*/
 .page-pagination {
   background: #fff6f6;
   display: -webkit-box;
@@ -1098,8 +1025,6 @@ img.mfp-img {
           box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/*-- Breadcrumb --*/
-/*-- Category Page Title --*/
 .category-page-title h4 {
   margin: 0;
   text-transform: uppercase;
@@ -1112,9 +1037,6 @@ img.mfp-img {
   padding-left: 0;
 }
 
-/*--
-    - Button
-------------------------------------------*/
 .btn, .btn-2 {
   border: 1px solid #626262;
   line-height: 24px;
@@ -1244,9 +1166,6 @@ img.mfp-img {
   padding: 8px 30px;
 }
 
-/*--
-    - Blockquote
-------------------------------------------*/
 .blockquote {
   padding: 30px 20px;
   position: relative;
@@ -1268,9 +1187,6 @@ img.mfp-img {
   color: #c89979;
 }
 
-/*--
-    Sidebar Widget Css
-----------------------------------*/
 .widget-title {
   margin-bottom: 20px;
 }
@@ -1371,7 +1287,6 @@ img.mfp-img {
   display: block;
 }
 
-/*-- Overlay styles --*/
 [data-overlay],
 [data-secondary-overlay],
 [data-black-overlay],
@@ -1490,9 +1405,7 @@ img.mfp-img {
   opacity: 1;
 }
 
-/*--
-    02. Header Css
------------------------*/
+
 .transparent-header {
   background-color: transparent;
   position: absolute;
@@ -1519,7 +1432,6 @@ img.mfp-img {
   background: #333;
 }
 
-/*----------- header top area start -----------*/
 .header-top-settings ul li {
   cursor: pointer;
   font-size: 12px;
@@ -1604,9 +1516,7 @@ img.mfp-img {
   color: #fff;
 }
 
-/*--
-    - Header Bottom Css
--------------------------------*/
+
 .logo {
   margin: 25px 0;
 }
@@ -1621,7 +1531,7 @@ img.mfp-img {
   }
 }
 
-/* Main Menu Css */
+
 .main-menu-area {
   /*&.menu-two {
       & ul {
@@ -1696,9 +1606,6 @@ img.mfp-img {
   padding: 32px 0px;
 }
 
-/*--
-    - Main Menu Css
----------------------*/
 .main-menu-area .sub-menu {
   background: #ffffff;
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -1784,9 +1691,6 @@ img.mfp-img {
   display: none;
 }
 
-/*--
-    - Right Blok Box Css
----------------------------*/
 .right-blok-box {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
@@ -1868,9 +1772,7 @@ img.mfp-img {
   background: #0E7346;
 }
 
-/*-- 
-    - Shopping Cart Css
-----------------------------*/
+
 .shopping-cart-wrap {
   position: relative;
 }
@@ -2031,9 +1933,6 @@ img.mfp-img {
   color: #ffffff;
 }
 
-/*---------------------------
-    - Mobile Menu Css
------------------------------*/
 .mobile-header .category-toggle {
   padding: 8px 15px;
 }
@@ -2149,9 +2048,6 @@ img.mfp-img {
   border: none;
 }
 
-/*-- 
-    header middile area start 
----------------------------------*/
 .hader-mid-right-box {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2264,7 +2160,6 @@ img.mfp-img {
   width: 100%;
 }
 
-/*----- mobile menu start -----*/
 .mobile-navigation {
   overflow: hidden;
   max-height: 250px;
@@ -2410,9 +2305,6 @@ img.mfp-img {
   margin-left: -1em;
 }
 
-/*--
-    03. Categories Menu Css
--------------------------------*/
 .categories_menu {
   position: relative;
 }
@@ -2599,7 +2491,7 @@ img.mfp-img {
     display: none;
   }
 }
-/*-- Welcome Text Css --*/
+
 .welcome-section .welcome-title h2 {
   font-weight: 400;
   font-size: 2.1429em;
@@ -2618,9 +2510,6 @@ img.mfp-img {
   margin: 0px 0 0;
 }
 
-/*--
-    04. Hero Css
---------------------------------*/
 .hero-slider-one .single-slide {
   height: 700px;
   display: -webkit-box;
@@ -2715,7 +2604,6 @@ img.mfp-img {
 }
 
 .slick-current {
-  /*-- Hero Content One --*/
 }
 .slick-current .hero-content-one h5 {
   -webkit-animation-name: rollIn;
@@ -2750,9 +2638,6 @@ img.mfp-img {
           animation-duration: 0.9s;
 }
 
-/*--
-    05. Support Css
---------------------------------*/
 .custom-col-service {
   padding-right: 8px;
   padding-left: 8px;
@@ -2807,9 +2692,6 @@ img.mfp-img {
   margin-left: 20px;
 }
 
-/*--
-   06. Product Area Css
-------------------------------*/
 .slick-slider .slick-slide .single-product-area {
   margin-right: 15px;
   margin-left: 15px;
@@ -3085,9 +2967,6 @@ img.mfp-img {
   margin: 0 1px;
 }
 
-/*-------------------------------
-   Modal-wrapper css
----------------------------------*/
 .modal-wrapper {
   display: block !important;
 }
@@ -3132,9 +3011,7 @@ img.mfp-img {
   background-color: transparent;
 }
 
-/*--
-   07. Product Details Css
----------------------------*/
+
 .pro-large-img a {
   z-index: 999;
   position: absolute;
@@ -3508,9 +3385,7 @@ img.mfp-img {
     margin-top: 20px;
   }
 }
-/*--
-    08. Testimonial Css
---------------------------------*/
+
 .quote-container {
   margin: auto;
   background: #fff;
@@ -3589,9 +3464,7 @@ img.mfp-img {
   margin-top: 30px;
 }
 
-/*--
-    09. Banner Area Css
----------------------------------*/
+
 .single-banner {
   overflow: hidden;
 }
@@ -3609,9 +3482,6 @@ img.mfp-img {
           transform: scale(1.02);
 }
 
-/*--
-    10. Blog Area Css
-----------------------------------*/
 .singel-latest-blog .aritcles-content {
   border-top: 1px solid #ebebeb;
   margin-bottom: 30px;
@@ -3911,9 +3781,6 @@ img.mfp-img {
   padding: 30px 45px;
 }
 
-/*--
-    11. Footer Css
--------------------------*/
 .footer-top {
   background: #2f2f2f;
 }
@@ -4085,9 +3952,6 @@ img.mfp-img {
   }
 }
 
-/*--
-    12. Breadcrumb Style
-------------------------------------------*/
 .breadcrumb-area {
   background: #F9F9F9;
   padding: 17px 0;
@@ -4114,9 +3978,7 @@ img.mfp-img {
   padding-right: 0.5rem;
 }
 
-/*--
-    13. Widget Css
----------------------*/
+
 .shop-box-area, .blog-sidebar-widget-area {
   border: 1px solid #ebebeb;
   border-radius: 3px;
@@ -4170,7 +4032,6 @@ img.mfp-img {
 }
 .category-sub-menu ul li.has-sub > a:after {
   color: #333333;
-  content: "";
   font-family: FontAwesome;
   font-size: 14px;
   position: absolute;
@@ -4425,12 +4286,6 @@ img.mfp-img {
   font-size: 13px;
 }
 
-/*--
-    14. Deals Offer Css
---------------------------------*/
-/*--
-    15. Brand Css
-------------------------*/
 .brand-bg {
   background: url(../images/bg/brand-bg.html);
   background-size: cover;
@@ -4473,9 +4328,7 @@ img.mfp-img {
   border-radius: 3px;
 }
 
-/*--
-    16. About US css
----------------------------*/
+
 .about-welcome-text h2 {
   max-width: 800px;
   margin: auto;
@@ -4552,9 +4405,6 @@ img.mfp-img {
   border: 1px solid #ddd;
 }
 
-/*--    
-    17. Contact Us Css
------------------------------*/
 .contact-form-info {
   padding: 20px 50px 20px 0;
 }
@@ -4670,9 +4520,7 @@ img.mfp-img {
   font-style: italic;
 }
 
-/*--
-    18. Cart Page Css
------------------------------*/
+
 .table-content table {
   background: #ffffff none repeat scroll 0 0;
   border-color: #ebebeb;
@@ -4842,9 +4690,6 @@ img.mfp-img {
   color: #A80135;
 }
 
-/*-- 
-   19. Checkout Page Css
-------------------------------*/
 .coupon-accordion h3 {
   background: #f6f6f6;
   border-top: 3px solid #c89979;
@@ -5089,9 +4934,6 @@ img.mfp-img {
   color: #ffffff;
 }
 
-/*--    
-    20. Error 404 Page Css
----------------------------*/
 .search-error-wrapper h1 {
   color: #c89979;
   font-size: 120px;
@@ -5145,119 +4987,8 @@ img.mfp-img {
   transition: 0.4;
 }
 
-/*--
-    21. Compare Page Css
------------------------------------------*/
-.compare-table .table tbody tr:first-child {
-  border-top: 1px solid #eeeeee;
-}
-.compare-table .table tbody tr td {
-  text-align: center;
-  border: none;
-  padding: 25px 30px;
-  vertical-align: middle;
-  border-bottom: 1px solid #eeeeee;
-  border-left: 1px solid #eeeeee;
-}
-.compare-table .table tbody tr td:last-child {
-  border-right: 1px solid #eeeeee;
-}
-.compare-table .table tbody tr td.first-column {
-  min-width: 180px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #000000;
-  margin: 0;
-  line-height: 1;
-}
-.compare-table .table tbody tr td.product-image-title {
-  min-width: 310px;
-  vertical-align: bottom;
-  padding-top: 70px;
-}
-.compare-table .table tbody tr td.product-image-title .image {
-  clear: both;
-  width: 100%;
-  margin-bottom: 40px;
-}
-.compare-table .table tbody tr td.product-image-title .image img {
-  max-width: 100%;
-}
-.compare-table .table tbody tr td.product-image-title .category {
-  clear: both;
-  color: #454545;
-  float: left;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  line-height: 15px;
-  margin-bottom: 7px;
-  margin-top: 15px;
-  text-transform: capitalize;
-}
-.compare-table .table tbody tr td.product-image-title .title {
-  float: left;
-  clear: both;
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
-  line-height: 20px;
-  margin-bottom: 10px;
-}
-.compare-table .table tbody tr td.pro-desc p {
-  text-align: left;
-  margin: 0;
-}
-.compare-table .table tbody tr td.pro-price {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
-}
-.compare-table .table tbody tr td.pro-color {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
-}
-.compare-table .table tbody tr td.pro-stock {
-  font-size: 16px;
-  font-weight: 600;
-  color: #000000;
-}
-.compare-table .table tbody tr td.pro-addtocart .add-to-cart {
-  position: relative;
-  background-color: #f6f6f6;
-  color: #000000;
-  border-radius: 50px;
-  display: inline-block;
-  width: 170px;
-  padding: 10px 6px;
-  -webkit-transition: all 0.7s;
-  transition: all 0.7s;
-}
-.compare-table .table tbody tr td.pro-addtocart .add-to-cart span {
-  font-size: 13px;
-  text-transform: uppercase;
-  font-weight: 700;
-  line-height: 21px;
-  overflow: hidden;
-  display: block;
-  text-align: center;
-}
-.compare-table .table tbody tr td.pro-remove button {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-}
-.compare-table .table tbody tr td.pro-remove button i {
-  font-size: 20px;
-}
-.compare-table .table tbody tr td.pro-ratting i {
-  color: #000000;
-  font-size: 14px;
-}
 
-/*--
-    22. My Account Page Css
---------------------------*/
+
 .dashboard-upper-info [class*=col-]:not(:last-child) .d-single-info {
   border-right: 1px solid #ebebeb;
   padding: 30px 20px;
@@ -5414,9 +5145,6 @@ img.mfp-img {
   font-size: 15px;
 }
 
-/*--
-    23. Login And Register Css
-----------------------------------*/
 .login-register-tab-list {
   text-align: center;
   display: -webkit-box;

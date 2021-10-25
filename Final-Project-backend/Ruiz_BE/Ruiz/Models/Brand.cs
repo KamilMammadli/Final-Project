@@ -13,5 +13,8 @@ namespace Ruiz.Models
         public string Name { get; set; }
         [StringLength(maximumLength: (50))]
         public string Image { get; set; }
+
+
+        public List<Watch> Watches { get; set; }
     }
 }

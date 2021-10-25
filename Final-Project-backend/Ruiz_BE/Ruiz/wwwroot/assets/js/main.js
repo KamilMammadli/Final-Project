@@ -2,9 +2,6 @@
     "use strict";
 
 
-/*--
-    Menu Sticky
------------------------------------*/
     var windows = $(window);
     var sticky = $('.header-sticky');
 
@@ -17,9 +14,6 @@
         }
     });
     
-/*--
-    Off Canvas
--------------------------------------------*/
     $(".off-canvas-btn").on('click', function () {
         $("body").addClass('fix');
         $(".off-canvas-wrapper").addClass('open');
@@ -31,9 +25,6 @@
     });
     
     
-/*-- 
-    Countdown Activation 
-------------------------------------*/
 	$('[data-countdown]').each(function () {
 		var $this = $(this),
 			finalDate = $(this).data('countdown');
@@ -44,10 +35,6 @@
     
     
     
-    
-/*---
- Category Menu Active
----------------------------- */	
     $(".categories_title").on("click", function() {
         $(this).toggleClass('active');
         $('.categories_menu_toggle').slideToggle('medium');
@@ -58,9 +45,6 @@
         $(this).toggleClass('rx-change');
     });	
     
-/* ---------------------
- Category menu
---------------------- */
     function categorySubMenuToggle(){
         $('.categories_menu_toggle li.menu_item_children > a').on('click', function(){
         if($(window).width() < 991){
@@ -86,20 +70,13 @@
     categorySubMenuToggle();
     
 
-/*-- 
-    Responsive Mobile Menu
---------------------------------------------------*/
-//Variables
 	var $offCanvasNav = $('.mobile-menu'),
 		$offCanvasNavSubMenu = $offCanvasNav.find('.dropdown');
 
-	//Add Toggle Button With Off Canvas Sub Menu
 	$offCanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i></i></span>');
 
-	//Close Off Canvas Sub Menu
 	$offCanvasNavSubMenu.slideUp();
 
-	//Category Sub Menu Toggle
 	$offCanvasNav.on('click', 'li a, li .menu-expand', function(e) {
         var $this = $(this);
         if ( ($this.parent().attr('class').match(/\b(menu-item-has-children|has-children|has-sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand')) ) {
@@ -116,9 +93,7 @@
         }
     });
     
-/*--
-    Hero Slider
---------------------------------------------*/
+
 
 var heroSlider = $('.hero-slider-one');
 heroSlider.slick({
@@ -144,9 +119,6 @@ heroSlider.slick({
 });
 
     
-/*--
-    Product Slider
---------------------------------------------*/
 var product_4 = $('.product-active-lg-4');
 product_4.slick({
     dots: false,
@@ -189,9 +161,7 @@ product_4.slick({
         }
     ]
 });
-/*--
-    Product Slider
---------------------------------------------*/
+
 var product_row_4 = $('.product-active-row-4');
 product_row_4.slick({
     dots: false,
@@ -237,9 +207,6 @@ product_row_4.slick({
 });  
     
     
-/*-- 
-    brand Active Two 
------------------------------*/
 var brandActive = $('.our-brand-active');
 brandActive.slick({
     dots: false,
@@ -276,9 +243,7 @@ brandActive.slick({
         }
     ]
 });
-/*-- 
-    Testimonial Two Slider 
------------------------------*/
+
 var testimonialSliderTwo = $('.testimonial-two');
 testimonialSliderTwo.slick({
     arrows: false,
@@ -294,25 +259,17 @@ testimonialSliderTwo.slick({
     nextArrow: false,
 });
 
- /* Product Detals Color */
 $('.watch-color li').on('click', function () {
     $(this).addClass('checked').siblings().removeClass('checked');
 });
 
-/*---------------------------
-	Count Down Timer
-----------------------------*/
 $('[data-countdown]').each(function() {
 	var $this = $(this), finalDate = $(this).data('countdown');
 	$this.countdown(finalDate, function(event) {
 		$this.html(event.strftime('<span class="cdown day"><span class="time-count">%-D</span> <p>Days</p></span> <span class="cdown hour"><span class="time-count">%-H</span> <p>Hours</p></span> <span class="cdown minutes"><span class="time-count">%M</span> <p>mins</p></span> <span class="cdown second"><span class="time-count">%S</span> <p>secs</p></span>'));
 	});
 }); 
-        
-    
-/*----------
-    price-slider active
--------------------------------*/  
+         
 $( "#price-slider" ).slider({
    range: true,
    min: 0,
@@ -325,10 +282,8 @@ $( "#price-slider" ).slider({
   });
   $( "#min-price" ).val('$' + $( "#price-slider" ).slider( "values", 0 ));   
   $( "#max-price" ).val('$' + $( "#price-slider" ).slider( "values", 1 )); 
-   
-/*--
-    Category menu Activation
-------------------------------*/
+
+
     $('.category-sub-menu li.has-sub > a').on('click', function () {
         $(this).removeAttr('href');
         var element = $(this).parent('li');
@@ -345,8 +300,8 @@ $( "#price-slider" ).slider({
             element.siblings('li').find('ul').slideUp();
         }
     }); 
-    
-// prodct details slider active
+
+
 $('.product-large-slider').slick({
     fade: true,
     arrows: false,
@@ -354,7 +309,6 @@ $('.product-large-slider').slick({
 });
 
 
-// product details slider nav active
 $('.product-nav').slick({
     slidesToShow: 4,
     asNavFor: '.product-large-slider',
@@ -372,50 +326,32 @@ $('.product-nav').slick({
 });
 
     
-// ScrollUp Active
 $('.nice-select').niceSelect ();
 
-// Image zoom effect
 $('.img-zoom').zoom();
     
-// Fancybox Active   
 $('[data-fancybox="images"]').fancybox({
     hash: false,
 });
     
 
-/*--
-    showlogin toggle function
---------------------------*/
 $( '#showlogin' ).on('click', function() {
     $('#checkout-login' ).slideToggle(500);
 }); 
     
-/*--
-    showcoupon toggle function
---------------------------*/
 $( '#showcoupon' ).on('click', function() {
     $('#checkout-coupon' ).slideToggle(500);
 });
     
-/*--
-    Checkout 
---------------------------*/
 $("#chekout-box").on("change",function(){
     $(".account-create").slideToggle("100");
 });
     
-/*-- 
-    Checkout 
----------------------------*/
 $("#chekout-box-2").on("change",function(){
     $(".ship-box-info").slideToggle("100");
 });        
     
      
-/*--
-    ScrollUp Active
------------------------------------*/
 $.scrollUp({
     scrollText: '<i class="fa fa-angle-up"></i>',
     easingType: 'linear',
