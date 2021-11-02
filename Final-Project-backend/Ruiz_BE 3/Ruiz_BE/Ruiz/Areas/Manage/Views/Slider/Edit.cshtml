@@ -1,0 +1,75 @@
+﻿
+@model Slider
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Title">Title</label>
+            <input type="text" asp-for="Title" class="form-control">
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="SubTitle">SubTitle</label>
+            <input type="text" asp-for="SubTitle" class="form-control">
+            <span class="text-danger" asp-validation-for="SubTitle"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="SubTitle2">SubTitle2</label>
+            <input type="text" asp-for="SubTitle2" class="form-control">
+            <span class="text-danger" asp-validation-for="SubTitle2"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RedirectUrl">RedirectUrl</label>
+            <input type="text" asp-for="RedirectUrl" class="form-control">
+            <span class="text-danger" asp-validation-for="RedirectUrl"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Content">Content</label>
+            <input type="text" asp-for="Content" class="form-control">
+            <span class="text-danger" asp-validation-for="Content"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Order">Order</label>
+            <input type="text" asp-for="Order" class="form-control">
+            <span class="text-danger" asp-validation-for="Order"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="BtnText">Btn Text</label>
+            <input type="text" asp-for="BtnText" class="form-control">
+            <span class="text-danger" asp-validation-for="BtnText"></span>
+        </div>
+
+
+
+        <div class="form-group">
+
+
+            @if (Model.Image != null)
+            {
+                <div class="img-box d-inline-block" style="position:relative">
+                    <img src="~/uploads/slider/@Model.Image" alt="Alternate Text" style="width:250px" />
+                    <input type="hidden" name="Image" value="@Model.Image" />
+                </div>}
+            <input asp-for="ImageFile" value="" />
+            <span class="text-danger" asp-validation-for="ImageFile"></span>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+

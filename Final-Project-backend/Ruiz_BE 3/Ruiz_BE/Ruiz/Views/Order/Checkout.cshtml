@@ -1,0 +1,100 @@
+﻿@model OrderCreateViewModel
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double total = 0;
+}
+
+
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Checkout Page</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="checkout-details-wrapper">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="billing-details-wrap">
+                <form action="#">
+                    <h3 class="shoping-checkboxt-title">Billing Details</h3>
+                    <div class="row">
+
+                        <div class="col-lg-6 mb--20">
+                            <label asp-for="Address">Address</label>
+                            <textarea class="mb-0 form-control" asp-for="Address" placeholder=""></textarea>
+                            <span class="text-danger" asp-validation-for="Address"></span>
+                        </div>
+                        <div class="col-lg-6 mb--20">
+                            <label asp-for="Note">Note</label>
+                            <textarea class="mb-0 form-control" asp-for="Note" placeholder=""></textarea>
+                            <span class="text-danger" asp-validation-for="Note"></span>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div class="your-order-wrapper">
+                <h3 class="shoping-checkboxt-title">Your Order</h3>
+                <div class="your-order-wrap">
+                    <div class="your-order-table table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-name">Product</th>
+                                    <th class="product-total">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.BasketItems)
+                                {
+                                    var itemTotal = item.Watch.DiscountedPrice * item.Count;
+                                    total += itemTotal;
+                                    <tr class="cart_item">
+                                        <td class="product-name">
+                                            @item.Watch.Name <strong class="product-quantity">
+                                                ×
+                                                @item.Count
+                                            </strong>
+
+                                        </td>
+                                        <td class="product-total">
+                                            <span class="amount">$@itemTotal</span>
+                                        </td>
+                                    </tr>
+
+                                }
+
+
+                            </tbody>
+
+                            <tfoot>
+                                <tr class="order-total">
+                                    <th>Order Total</th>
+                                    <td>
+                                        <strong><span class="amount">$@total</span></strong>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <button type="submit" f class="place-order w-100">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+

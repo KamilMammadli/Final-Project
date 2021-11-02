@@ -1,0 +1,226 @@
+﻿@model Watch
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Product Details</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content-wrap shop-page section-ptb">
+    <div class="container">
+        <div class="row product-details-inner">
+            <div class="col-lg-5 col-md-6">
+                <div class="product-large-slider">
+                    @foreach (var item in Model.WatchImages)
+                    {<div class="pro-large-img img-zoom">
+                            <img src="~/assets/images/product/@item.Image" alt="product-details" />
+
+
+                        </div>
+
+                    }
+
+
+                </div>
+                <div class="product-nav">
+                    @foreach (var item in Model.WatchImages)
+                    {
+
+
+                        <div class="pro-nav-thumb">
+                            <img src="~/assets/images/product/@item.Image" alt="product-details" />
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-6">
+                <div class="product-details-view-content">
+                    <div class="product-info">
+                        <h3>@Model.Name</h3>
+                        <div class="product-rating d-flex">
+                         
+                        </div>
+                        <div class="price-box">
+                            @if (Model.DiscountedPrice != Model.Price)
+                            {
+                                <span class="new-price">$@Model.DiscountedPrice</span>
+                                <span class="old-price">$@Model.Price</span>
+                            }
+                            else
+                            {
+                                <span class="price">$@Model.Price</span>
+                            }
+
+                        </div>
+                        <p>
+                            @Model.Desc
+                        </p>
+
+                        <div class="single-add-to-cart">
+                            <form action="#" class="cart-quantity d-flex">
+                                <button asp-action="addtobasket"  asp-route-id="@Model.Id" type="submit">Add To Basket</button>
+                            </form>
+                        </div>
+                        <ul class="single-add-actions">
+                            <li class="add-to-wishlist">
+                                
+                            </li>
+                        </ul>
+                        <ul class="stock-cont">
+                            <li class="product-sku">Code: <span>@Model.Code</span></li>
+                            <li class="product-sku">Color:@Model.Color</li>
+                            <li class="product-sku">Brand:@Model.Brand.Name</li>
+                            <li class="product-stock-status">
+                                Categories:
+
+                                <a href="#">@Model.Category.Name</a>
+
+                            </li>
+                            <li class="product-stock-status">
+                                Tags:
+                                @foreach (var item in Model.WatchTags)
+                                {
+                                    <a href="#">@item.Tag.Name,</a>
+
+
+                                }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+        <div class="related-product-area section-pt">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3> Related Product</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row product-active-lg-4">
+                @foreach (Watch item in ViewBag.RelatedWatches)
+                {<div class="col-lg-12">
+
+                        <div class="single-product-area mt-30">
+                            <div class="product-thumb">
+                                <a href="#">
+                                    <img class="primary-image" src="~/assets/images/product/@item.WatchImages.FirstOrDefault(x=>x.PosterStatus == true)?.Image" alt="">
+                                </a>
+                                @if (item.IsNew == true)
+                                {
+                                    <div class="label-product label_new">New</div>
+                                }
+                                else
+                                {
+                                    <div class="label-product label_new"></div>
+                                }
+                                <div class="action-links">
+                                    <a asp-action="addtobasket"  asp-route-id="@item.Id"class="cart-btn" title="Add to Cart">
+                                        <i class="icon-basket-loaded"></i>
+                                    </a>
+                                    
+                                    <a  asp-action="detail" asp-controller="watch" asp-route-id="@item.Id">
+                                        <i class="icon-magnifier icons"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                            <div class="product-caption">
+                                <h4 class="product-name"><a href="#">@item.Name</a></h4>
+                                <div class="price-box">
+                                    @if (item.DiscountedPrice != item.Price)
+                                    {
+                                        <span class="new-price">$@item.DiscountedPrice</span>
+                                        <span class="old-price">$@item.Price</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="price">$@item.Price</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                }
+
+
+            </div>
+        </div>
+
+        <div class="related-product-area section-pt">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h3> Watches</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row product-active-lg-4">
+                @foreach (Watch item in ViewBag.Watches)
+                {
+                    <div class="col-lg-12">
+
+                        <div class="single-product-area mt-30">
+                            <div class="product-thumb">
+                                <a href="#">
+                                    <img class="primary-image" src="~/assets/images/product/@item.WatchImages.FirstOrDefault(x=>x.PosterStatus == true)?.Image" alt="">
+                                </a>
+                                @if (item.IsNew == true)
+                                {
+                                    <div class="label-product label_new">New</div>
+                                }
+                                else
+                                {
+                                    <div class="label-product label_new"></div>
+                                }
+                                <div class="action-links">
+                                    <a asp-action="addtobasket"  asp-route-id="@item.Id" title="Add to Cart">
+                                        <i class="icon-basket-loaded"></i>
+                                    </a>
+                                   
+                                    <a asp-action="detail" asp-controller="watch" asp-route-id="@item.Id">
+                                        <i class="icon-magnifier icons"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="product-caption">
+                                <h4 class="product-name"><a asp-action="detail" asp-controller="watch" asp-route-id="@item.Id" >@item.Name</a></h4>
+                                <div class="price-box">
+                                    @if (item.DiscountedPrice != item.Price)
+                                    {
+                                        <span class="new-price">$@item.DiscountedPrice</span>
+                                        <span class="old-price">$@item.Price</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="price">$@item.Price</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

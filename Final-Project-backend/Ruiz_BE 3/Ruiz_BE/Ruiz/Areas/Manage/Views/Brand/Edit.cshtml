@@ -1,0 +1,38 @@
+﻿@model Brand
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+
+
+            @if (Model.Image != null)
+            {
+                <div class="img-box d-inline-block" style="position:relative">
+                    <img src="~/assets/images/brand/@Model.Image" alt="Alternate Text" style="width:250px" />
+                    <input type="hidden" name="Image" value="@Model.Image" />
+                </div>}
+            <input asp-for="ImageFile" value="" />
+            <span class="text-danger" asp-validation-for="ImageFile"></span>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+

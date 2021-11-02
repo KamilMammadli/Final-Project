@@ -1,0 +1,137 @@
+﻿@model UserUpdateViewModel
+@inject Microsoft.AspNetCore.Identity.UserManager<AppUser> userManager
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a asp-controller="home" asp-action="index">Home</a></li>
+                    <li class="breadcrumb-item active">My Account </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content-wrap section-ptb my-account-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="account-dashboard">
+                    <div class="dashboard-upper-info">
+                        <div class="row align-items-center no-gutters">
+                            <div class="col-lg-3 col-md-12">
+                                <div class="d-single-info">
+                                    <p class="user-name">
+                                        Hello  <span>
+
+                                            @User.Identity.Name
+
+                                        </span>
+                                    </p>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-2">
+                            <ul role="tablist" class="nav flex-column dashboard-list">
+                                <li> <a asp-controller="order" asp-action="index">Orders</a></li>
+                                <li><a href="#address" data-bs-toggle="tab" class="nav-link">Addresses</a></li>
+                                <li>
+                                    <a href="#account-details" data-bs-toggle="tab" class="nav-link">
+                                        Account
+                                        details
+                                    </a>
+                                </li>
+                                <li><a asp-controller="account" asp-action="logout" class="nav-link">logout</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-12 col-lg-10">
+                            <div class="tab-content dashboard-content">
+                                
+                                <div class="tab-pane" id="address">
+                                    <p>My Addresses:</p>
+                                    <h4 class="billing-address">@Model.Address1</h4>
+                                    <h4 class="billing-address">@Model.Address2</h4>
+
+                                </div>
+                                <div class="tab-pane fade active" id="account-details">
+                                    <h3>Account details </h3>
+                                    <div class="login">
+                                        <div class="login-form-container">
+                                            <div class="account-login-form">
+                                                <form method="post">
+                                                    <div class="col-md-12 col-12 mb--15">
+                                                        <label asp-for="FullName">Fullname</label>
+                                                        <input class="mb-0 form-control" asp-for="FullName"
+                                                               placeholder="Enter your Fullname">
+                                                    </div>
+                                                    <div class="col-12 mb--20">
+                                                        <label asp-for="Email">Email</label>
+                                                        <input class="mb-0 form-control" asp-for="Email" placeholder="Enter Your Email Address Here..">
+                                                        <span class="text-danger" asp-validation-for="Email"></span>
+                                                    </div>
+                                                    <div class="col-12 mb--20">
+                                                        <label asp-for="UserName">UserName</label>
+                                                        <input class="mb-0 form-control" asp-for="UserName" placeholder="Enter Your Username Here..">
+                                                        <span class="text-danger" asp-validation-for="UserName"></span>
+                                                    </div>
+                                                    <div class="col-12 mb--20">
+                                                        <label asp-for="Address1">Address1</label>
+                                                        <input class="mb-0 form-control" asp-for="Address1" placeholder="Enter Your Address Here..">
+                                                        <span class="text-danger" asp-validation-for="Address1"></span>
+                                                    </div>
+                                                    <div class="col-12 mb--20">
+                                                        <label asp-for="Address2">Address2</label>
+                                                        <input class="mb-0 form-control" asp-for="Address2" placeholder="Enter Your Second Address Here">
+                                                        <span class="text-danger" asp-validation-for="Address2"></span>
+                                                    </div>
+
+
+                                                    <div class="col-lg-6 mb--20">
+                                                        <label asp-for="Password">Password</label>
+                                                        <input class="mb-0 form-control" asp-for="Password" placeholder="Enter your password">
+                                                        <span class="text-danger" asp-validation-for="Password"></span>
+
+                                                    </div>
+                                                    <div class="col-lg-6 mb--20">
+                                                        <label asp-for="ConfirmPassword">Repeat Password</label>
+                                                        <input class="mb-0 form-control" asp-for="ConfirmPassword" placeholder="Repeat your password">
+                                                        <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                                                    </div>
+                                                    <div class="col-lg-6 mb--20">
+                                                        <label asp-for="CurrentPassword">Current Password</label>
+                                                        <input class="mb-0 form-control" asp-for="CurrentPassword" placeholder="Enter your current password">
+                                                        <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+                                                    </div>
+                                                    <div class="account-input-box">
+                                                    </div>
+                                                    <div class="button-box">
+                                                        <button class="btn default-btn"
+                                                                type="submit">
+                                                            Save
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

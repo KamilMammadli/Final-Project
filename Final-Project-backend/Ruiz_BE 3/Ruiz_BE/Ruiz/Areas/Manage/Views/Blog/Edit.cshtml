@@ -1,0 +1,77 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Manage/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <h1>Edit</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input type="text" asp-for="Name" class="form-control">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AuthorName">AuthorName</label>
+            <textarea asp-for="AuthorName" class="form-control"></textarea>
+            <span class="text-danger" asp-validation-for="AuthorName"></span>
+        </div>
+
+
+
+        <div class="form-row">
+
+            <div class="form-group col-md-3">
+                <label for="exampleFormControlSelect1">Blog Tags</label>
+                <select class="form-control" asp-for="BlogBTagBTagIds" asp-items="@(new SelectList(ViewBag.BTags,"Id","Name"))">
+                </select>
+                <span class="text-danger" asp-validation-for="BlogBTagBTagIds"></span>
+
+            </div>
+
+
+            <div class="form-group col-md-3">
+                <label asp-for="CreatedAt">CreatedAt</label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span class="text-danger" asp-validation-for="CreatedAt"></span>
+            </div>
+
+            <div class="form-group col-md-3">
+                <label asp-for="Content">Content</label>
+                <input asp-for="Content" class="form-control" />
+                <span class="text-danger" asp-validation-for="Content"></span>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+
+            @if (Model.Image != null)
+            {
+                <div class="img-box d-inline-block" style="position:relative">
+                    <img src="~/assets/images/blog/@Model.Image" alt="Alternate Text" style="width:250px" />
+                    <input type="hidden" name="Image" value="@Model.Image" />
+                </div>}
+            <input asp-for="ImageFile" value="" />
+            <span class="text-danger" asp-validation-for="ImageFile"></span>
+
+        </div>
+        
+      
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+
+
+
